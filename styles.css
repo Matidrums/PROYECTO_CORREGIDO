@@ -2,6 +2,7 @@
   box-sizing: border-box;
   max-width: 1440px;
   }
+  
 
 img{
     max-width: 100%;
@@ -14,23 +15,24 @@ body{
     font-family: 'IBM Plex Mono', monospace;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 16px;
+    margin: 0 auto;
+    
     
 }
 
-.inframe{
-    width: 100%;
-    min-height: 232px;
-    border: 0;
-    background-color: transparent;
-}
-/*SECCION MENU*/
+
+
+
+
+/*SECCION MENU HAMBURGUESA*/
 header {
     width: 100%;
-    position: fixed;
+    position: inherit;
     height: 45px;
     top: 0;
     background-color: transparent;
     padding: 10px 5%;
+    margin-bottom: 39px;
 
 
  
@@ -40,25 +42,36 @@ header .logo{
 
 }
 
-header .nav{
+header nav{
    float: right;
 }
+
 header nav .menu ul{
     width: 100%;
     position: absolute;
     top: 45px;
     right: 0;
     height: 0;
-   
+    /*height: 100vh;*/
+
     overflow: hidden;
     list-style: none;
     background: #f2f2f2;
-    transition: height 0.5s ease;
+    transition: transform 0.5s ease;
+    transform: translateY(-100);
+   
+   
+
+}
+
+header nav .menu input:checked ~ ul {
+    height: 100vh;
 
 }
 
 header nav .menu ul li {
     position: relative;
+    display:block;
 
 }
 header nav .menu ul li:hover{
@@ -68,7 +81,7 @@ header nav .menu ul li:hover{
 header nav .menu ul li a{
     position: relative;
     text-decoration: none;
-    color: #000;
+    color: #FFFFFF;
     padding: 16px 5%;
     line-height: 28px;
     display: block;
@@ -80,17 +93,22 @@ header nav .menu ul li a:hover{
 }
 /*depliegue de menu*/
 
-input [type="checkbox"]:checked ~ ul{
 
-    height:240px;
-    transition:height 0.5s ease-in-out;
-    -moz-transition: height 0.5s ease-in-out;
-    -o-moz-transition: height 0.5s ease-in-out;
-    -webkit-transition: height 0.5s ease-in-out;
+
+.menu input [type="checkbox"]:checked ~ ul{
+    background-color: #0000EC;
+    height:auto;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-moz-transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
 
 }
+    
+
 header nav .menu{
-    padding: 3px;
+    padding-top: 3px;
 
 }
 
@@ -110,8 +128,11 @@ header nav .menu span{
     height: 2.5px;
     margin-bottom: 6.5px;
     position: relative;
-    background: #000;
+    background: #060A24;
     z-index: 1;
+    transform-origin: 3px 0px;
+    transition: transform 0.5s ease;
+    opacity: 0.55s ease;
 
 }
 
@@ -134,335 +155,565 @@ header nav .menu input:checked ~ span{
 }
 header nav .menu input:checked ~ span:nth-last-child(3){
     opacity: 0;
-    transform:rotate (0deg) scale(0.2; 0.2);
+    transform:rotate (0deg) scale(0.2, 0.2);
 }
 header nav .menu input:checked ~ span:nth-last-child(2){
     opacity: 0;
     transform: rotate (-45deg) scale (1px, 0px);
 }
 
-#section_1{
-    padding-top: 30px ;
+
+
+
+.cleanList{
+    list-style: none;
+    padding-left: 0;
+    
+
 
 
 }
-h1{
+.cleanList li{
+    display: inline-block;
+    font-family: IBM Plex Mono,monospace;
+    font-size: 1rem;
     color: #060A24;
-    font-size: 36px;
+    letter-spacing: 0;
+    line-height: 28px;
+}
 
+
+.logo{
+    width: 24px;
 }
-.text{
-    font-size: 14px;
-    padding-top: 3%;
-    
+
+/* SECCION1*/
+
+#section1{
+    margin: 29px 16px 24px 16px;
 }
+
+
 .button{
+    font-family: 'IBM Plex Mono', medium;
     background-color: #00F3BB;
-    text-align: center;
+    font-size: 1.125rem;
     color: #060a24;
-    width: 288px;
-    height: 48px;
-    padding-bottom: 3%;
+    border: none;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    padding: 16px 59px;
+    text-align: center;
     text-transform: uppercase;
-    
 }
 .button:hover{
-    background-image: linear-gradient(to left, #060a24, #00f3bb);
-    color: black;
-    transform: translatex(5px);
-             
-}
-.spotify{
-    background-color: blue;
-    clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
-    padding-bottom: 80px;
-
-    padding-top: 40px;
-    margin-top: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-right: 10px;
-
-}
-.episodios{
+    background-image: linear-gradient(225deg, #0000FE, #00f3bb);
+    font-family: 'IBM Plex Mono', medium;
+    font-size:  18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24px;
     color:#FFFFFF;
-    font-size: 36px;
+
+            
+}
+
+.containerButton1{
+    margin-top: 0.9%;
+    text-align: center;
+}
+
+.containerButton1 button{
+    padding: 16px 90px;
+}
+
+/*SECCION2"*/
+
+
+.episodesContainer{
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    max-width: 100%;
+    clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+    padding-top: 16px;
+    padding-bottom: 143.5px;
+   
+}
+
+.episodesContainer .container h2.h2_container{
+    margin: 64px 147px 21px 16px;
+}
+
+.h2__container{
+    font-family: 'IBM Plans Sans' sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #FFFFFF;
+    margin-bottom: 26px;
 
 }
 
-.general_phone {
-    padding-top: 20px;
+.iframe_container{
+    display: flex;
+    flex-direction: column;
 }
-  
-  
+
+iframe{
+    width: auto;
+    max-width: 100%;
+    margin: 11px;
+    border: 0;
+    background-color: transparent;
+    min-height: 232px;
+}
+
+
+/*SECCION3*/
+
+
+#section3{
+    margin: 0px 16px 54px 16px;
+
+}
+.containerPhone{
+    position: relative;
+   
+
+}
+
+.imgPhone{
+    position: relative;
+    top: -99px;
+}
+
+
+
+
+/*SECCION4*/
+
+#section4{
+    
+    margin-bottom: 48px;
+}
+#section4 .container h2{
+    margin: 0 16px 14px 16px;
+
+
+
+}
+.guestsImg{
+    margin-top: -5px;
+}
+
+
+/*SECCION5*/
+
+#section5{
+    margin: 0 16px 42px 16px;
+}
+
+.containerMore{
+    text-align: center;
+}
+
+.pStyle{
+
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #060A24;
+    letter-spacing: 0;
+    text-align: center;
+    display: block;
+}
+.moreContent{
+    margin-top: 65px;
+}
+
+
+
+
+    /*SECCION6*/
+
+.containerNews{
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    max-width: 100%;
+    clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+    padding-top: 1px;
+    padding-bottom: 67px;
+   
+
+}
+
+h2.h2_title{
+    margin: 64px 16px 36px 16px;
+}
 
 .h2_title{
-    font-size: 36px;
-    display: block;
-    
-}
-.img_phone{
-    margin-top:-80px;
-    position:relative;
-    z-index: 1;
-}
-.paragraph_1, .paragraph_2{
-    display: block;
+    color: #FFFFFF;
+    margin-bottom: 36px;
     text-align: center;
 }
-
-
-#invitados{
-    display:block;
+.containerButton2{
+    margin-top: 0.9%;
+    text-align: center;
+}
+.containerButton2 button{
+    padding: 16px 30px;
 
 }
 
-.contentTemas{
+
+/*FOOTER*/
+
+footer{
+    margin: 24px 45px 31px 45px;
+}
+
+.containerFooter i{
+    text-align: center;
+
+}
+
+.footerFlexbox ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    padding-inline-start: 0;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:768px) {
+     /*HEADER*/
+
+     header nav img{
+        float: none;
+    }
+    .cleanList{
         
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-
-#novedades{
-    max-width: 100%;
-    clip-path: polygon(0 8%, 100% 0%, 100% 76%, 0 76%);
-}
-
-
-
-
-.h2_novedades{
-    text-align: center;
-    font-size: 36px;
-    
-
-}
-.button_2{
-    background-color: #00F3BB;
-    color: #060A24;
-    width: 90%;
-    height: 48px;
-
-
-}
-
-
-
-
-
-
-
-
-@media screen and (min-width:1000px) {
-
+    }
     header nav .menu ul{
-        position: relative;
-        top: 0;
-        right: 0;
-        overflow: hidden;
-        background: unset;
-        height: unset;
+        height: auto;
+        display: inline-block;
+        padding-left: 48px;
+        font-size: 1rem;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 28px;
 
     }
-    header nav .menu ul li{
-        padding: 5px 10px;
-        display:inline-block;
-        float: right;
-    }
-    header nav .menu ul li:hover{
-        background: unset;
-        border-bottom: 2px solid black;
-
-    }
-    header nav .menu ul li a{
-        padding: unset;
-        line-height: unset;
-
-    }
-    header nav .menu ul li a:hover{
-        color: unset;
-    }
-    header nav .menu input{
-        display: none;
-    }
-    header nav .menu span{
-        display: none;
+    .logo{
+        width: 36px;
     }
 
-
-    .morecontent{
+    .menu_container{
         display: flex;
-        flex-direction: row;
+    }
+
+    header{
+        padding: 22px 50px 120px 50px;
+    }
+    header .menu_container{
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    header .menu_container nav .menu input{
+        display: none;
+
+    }
+    header .menu_container nav .menu span{
+        display: none;
+        
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    a:link{
+        color: #060A24;
+    }
+
+    a:hover{
+        font-size: 16px;
+        font-weight: 500;
+        color: #00F3BB;
+        letter-spacing: 0;
+        line-height: 28px;
+        text-decoration: line-through;
+    }
+    a:active{
+        font-size: 16px;
+        color: rgba(6,10,36,0.56);
+        letter-spacing: 0;
+        line-height: 28px;
     }
 
 
+    /*seccion1*/
 
+    #section1{
+        margin-bottom: 5px;
+    }
 
+    h1{
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 4rem;
+        color: #060A24;
+        letter-spacing: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .text{
+        font-family: 'IBM Plans Mono', monospace;
+        font-size: 1rem;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 24px;
+        max-width: 628px;
+    }
+    .containerButton1{
+        margin-top: 56px;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    .containerButton1 .button{
+        padding: 16px 60px;
+    }
 
     .button{
+        font-family: 'IBM Plex Mono', medium;
         background-color: #00F3BB;
+        font-size: 1.125rem;
         color: #060a24;
-        width: 226px;
-        height: 56px;
-        padding-bottom: 2%;
+        border: none;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+        padding: 16px 59px;
         text-align: center;
         text-transform: uppercase;
     }
     .button:hover{
-        background-image: linear-gradient(to left, #060a24, #00f3bb);
-        color: white;
-        transform: translatex(5px);
+        background-image: linear-gradient(225deg, #0000FE, #00f3bb);
+        font-family: 'IBM Plex Mono', medium;
+        font-size:  18px;
+        font-weight: 500;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 24px;
+        color:#FFFFFF;
+
                 
     }
-    .diagonal{
+
+    /*seccion2*/
+
+    .episodesContainer{
         background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
-        background-color: blue;
-        transform: skewY(-3deg);
-        position: absolute;
-    
-        left: 0;
-        width: 100%;
-        height: 1042px;
-        z-index: -1;
-    
-    }
-
-
-            
-
-    /*SECCION 1*/
-
-    #section_1{
-        margin-top: 3em;
-        margin-left: 6em;
-    
+        max-width: 100%;
+        clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+        padding-top: 186px;
+        padding-bottom: 232.6px;
 
     }
 
-    h1{
-    
-        color: #060A24;
+    #section2{
+        margin-bottom: 20.4px;
     }
-
-    .text{
-        width: 43.6%;
-        height: 1.2%;
-        font-family: IBMPlexMono;
-        font-size: 16px;
-        color: #060A24;
+    .episodesContainer{
+       margin: 26px 0;
+       
+    }
+    
+    .episodesContainer .container h2.h2_container{
+        margin: 64px 147px 21px 16px;
+    }
+    
+    .h2__episodios{
+        font-family:'IBM Plans Sans' sans-serif;
+        font-size: 3rem;
         letter-spacing: 0;
-        line-height: 24px
-    }
-
-    /*SECCION 2 SPOTY"*/
-
-
-    .episodios{
-        font-family: IBMPlexSans;
-        font-size: 48px;
-        margin-left: 90px;
-        height: 15px;
+        margin-top: 0;
         color: #FFFFFF;
-        
-
-    }
-
-
-    .diagonal{
-        background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
-        background-color: blue;
-        transform: skewY(-3deg);
-        position: absolute;
-    
-        left: 0;
-        width: 100%;
-        height: 1042px;
-        z-index: -1;
+        margin-bottom: 26px;
     
     }
-
-
-
-        
-        
-    .flex-container{
-        max-width: 1140px;
-        margin: 0 auto;
+    
+    .iframe_container{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        
-        
-    } 
-    img .flex-container{
-        width: 584px;
-        height: 232px;
-
     }
-
-
-
-
-
+    
+    iframe{
+       margin-bottom: 72px;
+       margin-left: 50px;
+       width: 584px;
+       min-height: 232px;
+       border: 0;
+       background-color: transparent;
+    
+    }
+       
     /*SECCION PHONE 3*/
 
-    #section_3 img{
+    #section3{
+        margin-bottom: 64px;
+
+    }
+    #section3 .containerPhone{
         position: relative;
-        margin-top: -60px;
-
-    }
-
-    .imagePhone{    
-    
-    
-        
-        
-
-    }
-    .text-titulo{
-        
-    }
-    .dedondevenimos{
-
-
-    }
-
-    /*SECCION INVITADOS*/
-
-
-    #invitados{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-
-
-    
-
-    }
-    .invitados{
-    
-        
-    }
-
-
-
-
-
-
-    .contentTemas{
         display: flex;
-        flex-direction: row;
+
+    }
+    #section3 .containerPhone .ImgPhone{
+        position: relative;
+        top: -195px;
+    }
+    #section3 .containerPhone .ImgPhone .phonelogo{
+        max-width: 457.6px;
+        margin-left: 20px;
+
+    }
+    #section3 .containerPhone .about{
+        max-width: 464px;
+    }
+
+
+
+
+    /*SECCION4*/
+
+    .containerNews{
+        background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+        max-width: 100%;
+        clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+        padding-top: 213px;
+        padding-bottom: 151px;
+       
+    
+    }
+
+    #section4{
+        margin-top: -150px;
+        margin-bottom: 64px;
+    }
+    #section4 .container h2{
+        margin: 0 0 36px 0;    
+    
+    
+    }
+    .guestsImg{
+        width: 33.3%;
+    }
+
+    .gridGuests{
+        display: grid;
+        grid-template-columns: 33.3%, 33.3%,33.3%;
+        grid-template-rows: 50% 50%;
+    }
+    
+    .guests1{
+        display: flex;
+        grid-column: 1/4;
+    }
+    .guests2{
+        display: flex;
+        grid-column: 1/4;
+
+    }
+
+    /*SECCION5*/
+
+    #section5{
+        margin-bottom: 34px;
+
+    }
+
+    .containerMore{
+        display: flex;
+    }
+
+    #section5 .containerMore{
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin-top: 56px;
+        margin-bottom: 34px;
+
+    }
+    .pStyle{
+
+        font-family: 'IBM Plex Sans',sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #060A24;
+        letter-spacing: 0;
+        text-align: center;
+        display: block;
+    }
+
+    /*SECCION6*/
+
+    #section6{
+        margin-bottom: 36px;
+
+    }
+
+      
+    .h2_title{
+        color: #FFFFFF;
+        margin-bottom: 36px;
         text-align: center;
     }
-    .footer-azul{
-        clip-path: polygon(0 69%, 100% 61%, 100% 100%, 0% 100%);
+    .containerButton2{
+        margin-top: 0.9%;
+        text-align: center;
+    }
+    .containerButton2 button{
+        padding: 16px 70px;
+        margin-top: 0.9%;
+        text-align: center;
+    
+    }
+
+
+    /*FOOTER*/
+
+    .containerFooter{
+        display: flex;
+
+    }
+
+    footer .containerFooter{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .fab{
+        padding-right: 36px;
     }
     
 
 
-        
-   
-  
 
+}
+
+
+   
